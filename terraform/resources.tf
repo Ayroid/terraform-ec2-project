@@ -54,3 +54,67 @@ resource "aws_route_table_association" "my-route-table-association" {
    } 
  
  */
+
+resource "aws_security_group" "my-sg" {
+  name   = "${var.env_prefix}-nana-sg"
+  vpc_id = aws_vpc.my-vpc.id
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = [var.my_ip]
+  }
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "${var.env_prefix}-nana-sg"
+  }
+}
+
+# This is an example of how to create a default security group with ingress and egress rules
+
+/* 
+   resource "aws_default_security_group" "my-default-sg" {
+   vpc_id = aws_vpc.my-vpc.id
+
+   ingress {
+     from_port   = 22
+     to_port     = 22
+     protocol    = "tcp"
+     cidr_blocks = [var.my_ip]
+   }
+
+   ingress {
+     from_port   = 8080
+     to_port     = 8080
+     protocol    = "tcp"
+     cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    egress {
+      from_port   = 0
+      to_port     = 0
+      protocol    = "-1"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+
+    tags = {
+      Name = "${var.env_prefix}-nana-sg"
+    }
+
+    }
+
+*/

@@ -42,3 +42,8 @@ variable "env_prefix" {
   type        = string
   description = "Environment Prefix"
 }
+
+variable "my_ip" {
+  type        = string
+  description = "My IP"
+}
