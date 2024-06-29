@@ -47,3 +47,18 @@ variable "my_ip" {
   type        = string
   description = "My IP"
 }
+
+variable "instance_type" {
+  type        = string
+  description = "Instance Type"
+}
+
+variable "key_name" {
+  type        = string
+  description = "Key Pair Name"
+}
+
+variable "key_path" {
+  type        = string
+  description = "Key Pair Path"
+}

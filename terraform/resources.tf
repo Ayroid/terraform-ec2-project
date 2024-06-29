@@ -118,3 +118,37 @@ resource "aws_security_group" "my-sg" {
     }
 
 */
+
+data "aws_ami" "latest-ubuntu-image" {
+  most_recent = true
+  owners      = ["099720109477"]
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-*"]
+  }
+}
+
+output "aws_ami_id" {
+  value = data.aws_ami.latest-ubuntu-image.id
+}
+
+resource "aws_key_pair" "my-key" {
+  key_name   = var.key_name
+  public_key = file("${var.key_path}")
+}
+
+resource "aws_instance" "my-ec2" {
+  ami                         = data.aws_ami.latest-ubuntu-image.id
+  instance_type               = var.instance_type
+  subnet_id                   = aws_subnet.my-subnet-1.id
+  key_name                    = var.key_name
+  security_groups             = [aws_security_group.my-sg.id]
+  associate_public_ip_address = true
+  tags = {
+    Name = "${var.env_prefix}-nana-ec2"
+  }
+}
+
+output "public_ip" {
+  value = aws_instance.my-ec2.public_ip
+}
