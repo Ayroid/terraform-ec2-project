@@ -142,8 +142,11 @@ resource "aws_instance" "my-ec2" {
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.my-subnet-1.id
   key_name                    = var.key_name
-  security_groups             = [aws_security_group.my-sg.id]
+  vpc_security_group_ids      = [aws_security_group.my-sg.id]
   associate_public_ip_address = true
+
+  user_data = file("setup.sh")
+
   tags = {
     Name = "${var.env_prefix}-nana-ec2"
   }
