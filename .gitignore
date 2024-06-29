@@ -1,5 +1,5 @@
 node_modules/
-*tfvars
-.terraform/
-*tfstate
-*tfstate*
+terraform/*tfvars
+terraform/.terraform/
+terraform/*tfstate
+terraform/*tfstate*
