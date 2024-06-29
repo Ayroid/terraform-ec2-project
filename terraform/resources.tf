@@ -36,3 +36,21 @@ resource "aws_route_table_association" "my-route-table-association" {
   subnet_id      = aws_subnet.my-subnet-1.id
   route_table_id = aws_route_table.my-route-table.id
 }
+
+# This is an example of how to create a default route table and associate it with a VPC
+
+/* 
+   resource "aws_default_route_table" "my-default-route-table" {
+   default_route_table_id = aws_vpc.my-vpc.default_route_table_id
+
+   route = {
+     cidr_block = "0.0.0.0/0"
+     gateway_id = aws_internet_gateway.my-igw.id
+   }
+
+   tags = {
+     Name = "${var.env_prefix}-nana-default-route-table"
+   }
+   } 
+ 
+ */
