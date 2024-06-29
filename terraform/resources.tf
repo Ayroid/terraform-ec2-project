@@ -31,3 +31,8 @@ resource "aws_route_table" "my-route-table" {
     Name = "${var.env_prefix}-nana-route-table"
   }
 }
+
+resource "aws_route_table_association" "my-route-table-association" {
+  subnet_id      = aws_subnet.my-subnet-1.id
+  route_table_id = aws_route_table.my-route-table.id
+}
