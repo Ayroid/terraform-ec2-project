@@ -6,6 +6,23 @@ This project contains Terraform code to create an EC2 instance within a custom V
 
 ![Architecture](images/architecture.png)
 
+## Best Practices Followed
+
+- **Terraform Modules:** The configuration is organized into modules to promote reusability and maintainability.
+- **Remote State:** The state file is stored in an S3 bucket to enable collaboration and state management.
+- **Variables:** Variables are used to define the configuration parameters and make the code flexible.
+- **Output Values:** Output values are used to display the relevant information after the resources are created.
+- **Resource Tagging:** Resources are tagged with appropriate names and values for better identification.
+
+## Branches
+
+The project is organized into different branches to demonstrate various features of Terraform. Each branch contains a different configuration and to view code updates you must visit the branches in the defined order:
+
+1. **[main](https://github.com/Ayroid/terraform-ec2-project/tree/master):** Contains the Terraform configuration to create an EC2 instance.
+1. **[feature/modules](https://github.com/Ayroid/terraform-ec2-project/tree/modules):** Contains the Terraform configuration with custom modules for Subnet, and EC2 Instance.
+1. **[feature/existing-modules](https://github.com/Ayroid/terraform-ec2-project/tree/existing-modules):** Contains the Terraform configuration with existing modules for VPC from the Terraform Registry.
+1. **[feature/remote-state-s3](https://github.com/Ayroid/terraform-ec2-project/tree/remote-state-s3):** Contains the Terraform configuration with remote state management using S3 bucket.
+
 ## Prerequisites
 
 - Terraform
