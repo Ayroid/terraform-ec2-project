@@ -1,4 +1,10 @@
 terraform {
+  backend "s3" {
+    bucket = "tf-nana-bucket"
+    key    = "tf-nana/terraform.tfstate"
+    region = var.aws_region
+  }
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
