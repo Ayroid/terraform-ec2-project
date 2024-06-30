@@ -62,3 +62,8 @@ variable "key_path" {
   type        = string
   description = "Key Pair Path"
 }
+
+variable "aws_image_name" {
+  type        = string
+  description = "AMI ID"
+}
