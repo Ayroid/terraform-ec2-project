@@ -16,7 +16,7 @@ This project contains Terraform code to create an EC2 instance within a custom V
 
 ## Branches
 
-The project is organized into different branches to demonstrate various features of Terraform. Each branch contains a different configuration and to view code updates you must visit the branches in the defined order:
+The project is organized into different branches to demonstrate various features of Terraform. Each branch contains a different configuration and to view code updates **you must visit the branches in the defined order**:
 
 1. **[main](https://github.com/Ayroid/terraform-ec2-project/tree/master):** Contains the Terraform configuration to create an EC2 instance.
 1. **[feature/modules](https://github.com/Ayroid/terraform-ec2-project/tree/modules):** Contains the Terraform configuration with custom modules for Subnet, and EC2 Instance.
